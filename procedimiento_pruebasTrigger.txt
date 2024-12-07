@@ -1,0 +1,141 @@
+mysql> select * from articulo;
++----+---------+----------------------------------+----------------------------------------------------------------------------+-----------------------+----------+----------+-------------------+
+| id | user_id | nombre                           | descripcion                                                                | categoria             | cantidad | precio   | fecha_adquisicion |
++----+---------+----------------------------------+----------------------------------------------------------------------------+-----------------------+----------+----------+-------------------+
+|  1 |       1 | Televisor Samsung                | Televisor 55 pulgadas 4K                                                   | Electrónica           |        2 |  1500.00 | 2024-01-15        |
+|  2 |       1 | Silla de oficina                 | Silla ergonómica de oficina                                                | Muebles               |        5 |   120.00 | 2024-02-05        |
+|  3 |       2 | Laptop HP                        | Laptop portátil de 15 pulgadas                                             | Electrónica           |        3 |   800.00 | 2024-02-10        |
+|  4 |       3 | Coche Toyota Corolla             | Coche 2023, modelo básico                                                  | Vehículos             |        1 | 20000.00 | 2024-03-01        |
+|  5 |       1 | Frigorífico LG                   | Frigorífico de 500 litros                                                  | Electrodomésticos     |        2 |  1000.00 | 2024-01-25        |
+|  6 |       2 | Mesa de comedor                  | Mesa de comedor de 6 puestos                                               | Muebles               |        4 |   350.00 | 2024-02-20        |
+|  7 |       1 | Sofá de Cuero                    | Sofá de 3 plazas color negro                                               | Muebles               |        1 |   850.00 | 2024-02-10        |
+|  8 |       1 | Laptop Dell Inspiron             | Laptop con procesador i7, 16GB RAM                                         | Tecnología            |        1 |  1200.00 | 2024-03-15        |
+|  9 |       1 | Cama Matrimonial                 | Cama con base de madera y colchón ortopédico                               | Muebles               |        1 |   500.00 | 2023-12-25        |
+| 10 |       1 | Refrigerador LG                  | Refrigerador 18 pies cúbicos, acero inoxidable                             | Electrodomésticos     |        1 |   950.00 | 2024-01-20        |
+| 11 |       1 | Televisor LG OLED                | Televisor 65 pulgadas con resolución 4K                                    | Electrónica           |        1 |  1800.00 | 2024-02-05        |
+| 12 |       1 | Juego de Comedor                 | Mesa de comedor para 6 personas con sillas de madera                       | Muebles               |        1 |   650.00 | 2024-03-01        |
+| 13 |       1 | iPhone 14 Pro                    | Smartphone Apple con 256GB de almacenamiento                               | Tecnología            |        1 |   999.00 | 2024-04-10        |
+| 14 |       1 | Bicicleta de Montaña             | Bicicleta con marco de aluminio y suspensión                               | Deportes              |        1 |   450.00 | 2024-05-05        |
+| 15 |       1 | Automóvil Toyota Corolla         | Sedán 2023, motor híbrido, color blanco                                    | Vehículos             |        1 | 23000.00 | 2024-06-15        |
+| 16 |       1 | Aspiradora Dyson                 | Aspiradora inalámbrica con tecnología ciclónica                            | Electrodomésticos     |        1 |   650.00 | 2024-07-10        |
+| 17 |       1 | Teléfono Xiaomi                  | Teléfono móvil con cámara de 108 MP                                        | Electrónica           |        5 |   500.00 | 2024-12-07        |
+| 18 |       1 | Teléfono Xiaomi                  | Teléfono móvil con cámara de 108 MP                                        | Electrónica           |        5 |   575.00 | 2024-12-07        |
+| 19 |       2 | Cámara Fotográfica Canon EOS 90D | Cámara réflex digital de 32.5 MP, con pantalla táctil y grabación 4K       | Electrónica           |        3 |  1380.00 | 2024-12-07        |
+| 20 |       2 | Lapiz                            | artículo de prueba                                                         | Utilies de escritorio |       10 |     5.75 | 2024-12-07        |
+| 21 |       2 | Lapiz                            | artículo de prueba                                                         | Utilies de escritorio |       10 |     5.75 | 2024-12-07        |
+| 22 |       2 | Laptop HP Pro                    | Laptop portátil de 14 pulgadas, procesador i5                              | Electrónica           |        4 |   977.50 | 2024-12-07        |
+| 23 |       2 | Laptop HP Pro                    | Laptop portátil de 14 pulgadas, procesador i5                              | Electrónica           |        1 |   115.00 | 2024-12-07        |
+| 24 |       1 | Smartwatch Garmin Fenix 7        | Reloj inteligente con GPS, resistencia al agua y monitor de ritmo cardíaco | Tecnología            |        3 |   402.50 | 2024-12-07        |
+| 25 |       2 | Teclado Mecánico Logitech        | Teclado mecánico con retroiluminación RGB y teclas programables            | Tecnología            |        4 |   138.00 | 2024-12-07        |
+| 26 |       2 | Laptop HP Pro                    | Laptop portátil de 14 pulgadas, procesador i5                              | Electrónica           |        4 |   977.50 | 2024-12-07        |
+| 27 |       1 | Silla Gamer                      | Silla ergonómica para gamers, con ajuste lumbar                            | Muebles               |        3 |   287.50 | 2024-12-07        |
+| 28 |       2 | Tablet Samsung Galaxy            | Tablet de 10 pulgadas con procesador Exynos                                | Electrónica           |        5 |   402.50 | 2024-12-07        |
+| 29 |       2 | Tablet Samsung Galaxy            | Tablet de 10 pulgadas con procesador Exynos                                | Electrónica           |        5 |   402.50 | 2024-12-07        |
++----+---------+----------------------------------+----------------------------------------------------------------------------+-----------------------+----------+----------+-------------------+
+29 rows in set (0.00 sec)
+
+mysql> CALL GastosPorAnioDetalle(1, 2024);
++-----------+--------------+
+| mes       | total_gastos |
++-----------+--------------+
+| Enero     |      3000.00 |
+| Febrero   |      4650.00 |
+| Diciembre |      4370.00 |
++-----------+--------------+
+3 rows in set (0.26 sec)
+
+Query OK, 0 rows affected (0.26 sec)
+
+mysql> CALL GastosPorAnioDetalle(1, 2024);
++-----------+--------------+
+| mes       | total_gastos |
++-----------+--------------+
+| Enero     |      3000.00 |
+| Febrero   |      4650.00 |
+| Diciembre |      4370.00 |
++-----------+--------------+
+3 rows in set (0.10 sec)
+
+Query OK, 0 rows affected (0.11 sec)
+
+mysql> select * from user;
++----+----------------+-------------+----------------------------+---------------------+---------------------+
+| id | username       | password    | email                      | date_created        | date_updated        |
++----+----------------+-------------+----------------------------+---------------------+---------------------+
+|  1 | max            | 123         | juanperez@example.com      | 2024-12-03 01:05:44 | 2024-12-07 03:46:35 |
+|  2 | mariagonzalez  | password456 | mariagonzalez@example.com  | 2024-12-03 01:10:31 | 2024-12-03 01:10:31 |
+|  3 | carloslopez    | password789 | carloslopez@example.com    | 2024-12-03 01:10:31 | 2024-12-03 01:10:31 |
+|  4 | luisafernandez | password101 | luisafernandez@example.com | 2024-12-03 01:10:31 | 2024-12-03 01:10:31 |
++----+----------------+-------------+----------------------------+---------------------+---------------------+
+4 rows in set (0.33 sec)
+
+mysql> INSERT INTO articulo (user_id, nombre, descripcion, categoria, cantidad, precio, fecha_adquisicion)
+    -> VALUES (4, 'Smartphone Xiaomi Mi 11', 'Smartphone con procesador Snapdragon 888', 'Electrónica', 3, 850.00, '2023-01-15');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO articulo (user_id, nombre, descripcion, categoria, cantidad, precio, fecha_adquisicion)
+    -> VALUES (4, 'Silla Gaming DXRacer', 'Silla ergonómica para gamer, ajustable', 'Muebles', 2, 450.00, '2023-03-20');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO articulo (user_id, nombre, descripcion, categoria, cantidad, precio, fecha_adquisicion)
+    -> VALUES (4, 'Refrigerador Whirlpool', 'Refrigerador 18 pies cúbicos, con eficiencia energética', 'Electrodomésticos', 1, 1200.00, '2023-06-10');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO articulo (user_id, nombre, descripcion, categoria, cantidad, precio, fecha_adquisicion)
+    -> VALUES (4, 'Cámara Canon EOS 90D', 'Cámara réflex digital de 32.5 MP', 'Electrónica', 1, 1500.00, '2024-09-15');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO articulo (user_id, nombre, descripcion, categoria, cantidad, precio, fecha_adquisicion)
+    -> VALUES (4, 'Portátil Dell XPS', 'Laptop portátil con procesador i7 y 16GB de RAM', 'Tecnología', 2, 1800.00, '2024-12-05');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from user;
++----+----------------+-------------+----------------------------+---------------------+---------------------+
+| id | username       | password    | email                      | date_created        | date_updated        |
++----+----------------+-------------+----------------------------+---------------------+---------------------+
+|  1 | max            | 123         | juanperez@example.com      | 2024-12-03 01:05:44 | 2024-12-07 03:46:35 |
+|  2 | mariagonzalez  | password456 | mariagonzalez@example.com  | 2024-12-03 01:10:31 | 2024-12-03 01:10:31 |
+|  3 | carloslopez    | password789 | carloslopez@example.com    | 2024-12-03 01:10:31 | 2024-12-03 01:10:31 |
+|  4 | luisafernandez | password101 | luisafernandez@example.com | 2024-12-03 01:10:31 | 2024-12-03 01:10:31 |
++----+----------------+-------------+----------------------------+---------------------+---------------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from articulo;
++----+---------+----------------------------------+----------------------------------------------------------------------------+-----------------------+----------+----------+-------------------+
+| id | user_id | nombre                           | descripcion                                                                | categoria             | cantidad | precio   | fecha_adquisicion |
++----+---------+----------------------------------+----------------------------------------------------------------------------+-----------------------+----------+----------+-------------------+
+|  1 |       1 | Televisor Samsung                | Televisor 55 pulgadas 4K                                                   | Electrónica           |        2 |  1500.00 | 2024-01-15        |
+|  2 |       1 | Silla de oficina                 | Silla ergonómica de oficina                                                | Muebles               |        5 |   120.00 | 2024-02-05        |
+|  3 |       2 | Laptop HP                        | Laptop portátil de 15 pulgadas                                             | Electrónica           |        3 |   800.00 | 2024-02-10        |
+|  4 |       3 | Coche Toyota Corolla             | Coche 2023, modelo básico                                                  | Vehículos             |        1 | 20000.00 | 2024-03-01        |
+|  5 |       1 | Frigorífico LG                   | Frigorífico de 500 litros                                                  | Electrodomésticos     |        2 |  1000.00 | 2024-01-25        |
+|  6 |       2 | Mesa de comedor                  | Mesa de comedor de 6 puestos                                               | Muebles               |        4 |   350.00 | 2024-02-20        |
+|  7 |       1 | Sofá de Cuero                    | Sofá de 3 plazas color negro                                               | Muebles               |        1 |   850.00 | 2024-02-10        |
+|  8 |       1 | Laptop Dell Inspiron             | Laptop con procesador i7, 16GB RAM                                         | Tecnología            |        1 |  1200.00 | 2024-03-15        |
+|  9 |       1 | Cama Matrimonial                 | Cama con base de madera y colchón ortopédico                               | Muebles               |        1 |   500.00 | 2023-12-25        |
+| 10 |       1 | Refrigerador LG                  | Refrigerador 18 pies cúbicos, acero inoxidable                             | Electrodomésticos     |        1 |   950.00 | 2024-01-20        |
+| 11 |       1 | Televisor LG OLED                | Televisor 65 pulgadas con resolución 4K                                    | Electrónica           |        1 |  1800.00 | 2024-02-05        |
+| 12 |       1 | Juego de Comedor                 | Mesa de comedor para 6 personas con sillas de madera                       | Muebles               |        1 |   650.00 | 2024-03-01        |
+| 13 |       1 | iPhone 14 Pro                    | Smartphone Apple con 256GB de almacenamiento                               | Tecnología            |        1 |   999.00 | 2024-04-10        |
+| 14 |       1 | Bicicleta de Montaña             | Bicicleta con marco de aluminio y suspensión                               | Deportes              |        1 |   450.00 | 2024-05-05        |
+| 15 |       1 | Automóvil Toyota Corolla         | Sedán 2023, motor híbrido, color blanco                                    | Vehículos             |        1 | 23000.00 | 2024-06-15        |
+| 16 |       1 | Aspiradora Dyson                 | Aspiradora inalámbrica con tecnología ciclónica                            | Electrodomésticos     |        1 |   650.00 | 2024-07-10        |
+| 17 |       1 | Teléfono Xiaomi                  | Teléfono móvil con cámara de 108 MP                                        | Electrónica           |        5 |   500.00 | 2024-12-07        |
+| 18 |       1 | Teléfono Xiaomi                  | Teléfono móvil con cámara de 108 MP                                        | Electrónica           |        5 |   575.00 | 2024-12-07        |
+| 19 |       2 | Cámara Fotográfica Canon EOS 90D | Cámara réflex digital de 32.5 MP, con pantalla táctil y grabación 4K       | Electrónica           |        3 |  1380.00 | 2024-12-07        |
+| 20 |       2 | Lapiz                            | artículo de prueba                                                         | Utilies de escritorio |       10 |     5.75 | 2024-12-07        |
+| 21 |       2 | Lapiz                            | artículo de prueba                                                         | Utilies de escritorio |       10 |     5.75 | 2024-12-07        |
+| 22 |       2 | Laptop HP Pro                    | Laptop portátil de 14 pulgadas, procesador i5                              | Electrónica           |        4 |   977.50 | 2024-12-07        |
+| 23 |       2 | Laptop HP Pro                    | Laptop portátil de 14 pulgadas, procesador i5                              | Electrónica           |        1 |   115.00 | 2024-12-07        |
+| 24 |       1 | Smartwatch Garmin Fenix 7        | Reloj inteligente con GPS, resistencia al agua y monitor de ritmo cardíaco | Tecnología            |        3 |   402.50 | 2024-12-07        |
+| 25 |       2 | Teclado Mecánico Logitech        | Teclado mecánico con retroiluminación RGB y teclas programables            | Tecnología            |        4 |   138.00 | 2024-12-07        |
+| 26 |       2 | Laptop HP Pro                    | Laptop portátil de 14 pulgadas, procesador i5                              | Electrónica           |        4 |   977.50 | 2024-12-07        |
+| 27 |       1 | Silla Gamer                      | Silla ergonómica para gamers, con ajuste lumbar                            | Muebles               |        3 |   287.50 | 2024-12-07        |
+| 28 |       2 | Tablet Samsung Galaxy            | Tablet de 10 pulgadas con procesador Exynos                                | Electrónica           |        5 |   402.50 | 2024-12-07        |
+| 29 |       2 | Tablet Samsung Galaxy            | Tablet de 10 pulgadas con procesador Exynos                                | Electrónica           |        5 |   402.50 | 2024-12-07        |
+| 30 |       4 | Smartphone Xiaomi Mi 11          | Smartphone con procesador Snapdragon 888                                   | Electrónica           |        3 |   977.50 | 2023-01-15        |
+| 31 |       4 | Silla Gaming DXRacer             | Silla ergonómica para gamer, ajustable                                     | Muebles               |        2 |   517.50 | 2023-03-20        |
+| 32 |       4 | Refrigerador Whirlpool           | Refrigerador 18 pies cúbicos, con eficiencia energética                    | Electrodomésticos     |        1 |  1380.00 | 2023-06-10        |
+| 33 |       4 | Cámara Canon EOS 90D             | Cámara réflex digital de 32.5 MP                                           | Electrónica           |        1 |  1725.00 | 2024-09-15        |
+| 34 |       4 | Portátil Dell XPS                | Laptop portátil con procesador i7 y 16GB de RAM                            | Tecnología            |        2 |  2070.00 | 2024-12-05        |
++----+---------+----------------------------------+----------------------------------------------------------------------------+-----------------------+----------+----------+-------------------+
