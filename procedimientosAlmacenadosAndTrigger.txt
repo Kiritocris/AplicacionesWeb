@@ -23,11 +23,10 @@ BEGIN
 
     -- Consultar los gastos por cada mes del año y mostrar el total por mes
     SELECT m.mes_nombre AS mes,
-           IFNULL(SUM(f.monto), 0) AS total_gastos
+           IFNULL(SUM(a.cantidad * a.precio), 0) AS total_gastos
     FROM MesesDelAnio m
-    LEFT JOIN Factura f ON MONTH(f.fecha) = m.mes_num
-    LEFT JOIN Articulo a ON f.articulo_id = a.id
-    WHERE a.user_id = user_id AND YEAR(f.fecha) = anio
+    LEFT JOIN Articulo a ON MONTH(a.fecha_adquisicion) = m.mes_num
+    WHERE a.user_id = user_id AND YEAR(a.fecha_adquisicion) = anio
     GROUP BY m.mes_num, m.mes_nombre
     ORDER BY m.mes_num;
 
