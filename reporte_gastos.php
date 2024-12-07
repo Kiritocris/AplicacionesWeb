@@ -70,7 +70,7 @@ if (!isset($_SESSION['loggedin'])) {
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="My profile">
-          <a class="nav-link" href="messages.html">
+          <a class="nav-link" href="profile.php">
             <i class="fa fa-fw fa-wrench"></i>
             <span class="nav-link-text">Mi perfil</span>
           </a>
@@ -86,7 +86,7 @@ if (!isset($_SESSION['loggedin'])) {
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
           <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
-            <i class="fa fa-fw fa-sign-out"></i>Logout</a>
+            <i class="fa fa-fw fa-sign-out"></i>Cerrar sesion</a>
         </li>
       </ul>
     </div>
@@ -330,15 +330,15 @@ if (isset($_POST['generar_reporte'])) {
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <h5 class="modal-title" id="exampleModalLabel">¿Quieres cerrar sesión?</h5>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">×</span>
             </button>
           </div>
-          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-body">Selecciona "Cerrar sesión" si estas seguro de que quieres cerrar sesión.</div>
           <div class="modal-footer">
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="close_session.php">Logout</a>
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+            <a class="btn btn-primary" href="close_session.php">Cerrar sesión</a>
           </div>
         </div>
       </div>

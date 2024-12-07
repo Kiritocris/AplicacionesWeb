@@ -58,7 +58,7 @@ if (!isset($_SESSION['loggedin'])) {
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="index.html">
+          <a class="nav-link" href="index.php">
             <i class="fa fa-fw fa-dashboard"></i>
             <span class="nav-link-text">Inventario</span>
           </a>
@@ -70,7 +70,7 @@ if (!isset($_SESSION['loggedin'])) {
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="My profile">
-          <a class="nav-link" href="messages.html">
+          <a class="nav-link" href="profile.php">
             <i class="fa fa-fw fa-wrench"></i>
             <span class="nav-link-text">Mi perfil</span>
           </a>
@@ -86,7 +86,7 @@ if (!isset($_SESSION['loggedin'])) {
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
           <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
-            <i class="fa fa-fw fa-sign-out"></i>Logout</a>
+            <i class="fa fa-fw fa-sign-out"></i>Cerrar sesion</a>
         </li>
       </ul>
     </div>

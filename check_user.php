@@ -58,8 +58,9 @@ if ($stmt->num_rows > 0) {
 
         session_regenerate_id();
         $_SESSION['loggedin'] = TRUE;
-        $_SESSION['name'] = $_POST['username'];
+        $_SESSION['name'] = $_POST['userx'];
         $_SESSION['id'] = $id;
+        $_SESSION['pass'] = $_POST['passx'];
         header('Location: index.php');
     }
 } else {
