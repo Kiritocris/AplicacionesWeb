@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="Ansonika">
-  <title>UDEMA - Admin dashboard</title>
+  <title>Login Inventario</title>
 	
   <!-- Favicons-->
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
@@ -33,25 +33,27 @@
 	
 </head>
 
-
+<body>
   <!-- /Navigation-->
   <div class="content-wrapper">
     
 			<div class="header_box version_2">
 				<h2><i class="fa fa-user"></i>LOGIN</h2>
 			</div>
+      <form action="check_user.php" method="POST">
 				<div class="col-md-8 add_top_30">
+          
 					<div class="row">
 						<div class="col-md-6">
 							<div class="form-group">
-								<label>Email</label>
-								<input type="text" class="form-control" placeholder="Your email">
+								<label>Usuario</label>
+								<input type="text" class="form-control" placeholder="Your email" name="userx">
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>Password</label>
-								<input type="text" class="form-control" placeholder="Your password">
+								<input type="text" class="form-control" placeholder="Your password" name="passx">
 							</div>
 						</div>
 					</div>
@@ -60,7 +62,7 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="form-group">
-								<p><a href="#0" class="btn_1 medium">Log in</a></p>
+              <input class="btn_1 medium" type="submit">
                 <p> You don´t have an account <a href="sign-in.html">Sign in</a></p>
 							</div>
 						</div>
