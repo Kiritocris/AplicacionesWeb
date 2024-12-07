@@ -12,6 +12,7 @@ if (!isset($_SESSION['loggedin'])) {
     exit;
 }
 
+
 ?>
 
 <!DOCTYPE html>
@@ -165,9 +166,12 @@ if (!isset($_SESSION['loggedin'])) {
     </style>
 </head>
 <body>
+
 <?php
+
+
 if (isset($_POST['generar_reporte'])) {
-    $user_id = $_POST['user_id'];
+    $user_id = $_SESSION['id']; // Obtener el ID del usuario desde la sesión
     $anio = isset($_POST['anio']) ? intval($_POST['anio']) : null;
 
     // Conectar a la base de datos
@@ -204,19 +208,84 @@ if (isset($_POST['generar_reporte'])) {
 }
 ?>
 
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte de Gastos por Año</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #4a148c;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        select, input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #6a1b9a;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #4a148c;
+        }
+
+        canvas {
+            display: block;
+            max-width: 90%;
+            margin: 20px auto;
+        }
+
+        .total-gasto {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 10px;
+            text-align: center;
+            background-color: #e1bee7;
+            border: 1px solid #ab47bc;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #4a148c;
+        }
+    </style>
+</head>
+
+<body>
     <h2>Reporte de Gastos por Año</h2>
     <hr>
     <form action="" method="POST">
-        <label for="user_id">Seleccione Usuario:</label>
-        <select name="user_id" id="user_id" required>
-            <?php
-            $link = mysqli_connect("localhost", "root", "", "gestion_inventario");
-            $resultado_usuarios = mysqli_query($link, "SELECT id, username FROM User");
-            while ($usuario = mysqli_fetch_array($resultado_usuarios)) {
-                echo "<option value='{$usuario['id']}'>{$usuario['username']}</option>";
-            }
-            ?>
-        </select>
 
         <label for="anio">Ingrese Año:</label>
         <input type="number" name="anio" id="anio" min="2000" max="2100" required>
@@ -288,6 +357,9 @@ if (isset($_POST['generar_reporte'])) {
         });
     </script>
 </body>
+
+</html>
+
 
 
 
