@@ -52,3 +52,35 @@ BEGIN
 END$$
 
 DELIMITER ;
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Datos de prueba en consola:
+
+Aquí tienes 5 ejemplos de inserciones para el user_id = 4 con fechas en los años 2023 y 2024:
+
+1. Artículo insertado en enero de 2023:
+sql
+Copiar código
+INSERT INTO articulo (user_id, nombre, descripcion, categoria, cantidad, precio, fecha_adquisicion)
+VALUES (4, 'Smartphone Xiaomi Mi 11', 'Smartphone con procesador Snapdragon 888', 'Electrónica', 3, 850.00, '2023-01-15');
+2. Artículo insertado en marzo de 2023:
+sql
+Copiar código
+INSERT INTO articulo (user_id, nombre, descripcion, categoria, cantidad, precio, fecha_adquisicion)
+VALUES (4, 'Silla Gaming DXRacer', 'Silla ergonómica para gamer, ajustable', 'Muebles', 2, 450.00, '2023-03-20');
+3. Artículo insertado en junio de 2023:
+sql
+Copiar código
+INSERT INTO articulo (user_id, nombre, descripcion, categoria, cantidad, precio, fecha_adquisicion)
+VALUES (4, 'Refrigerador Whirlpool', 'Refrigerador 18 pies cúbicos, con eficiencia energética', 'Electrodomésticos', 1, 1200.00, '2023-06-10');
+4. Artículo insertado en septiembre de 2024:
+sql
+Copiar código
+INSERT INTO articulo (user_id, nombre, descripcion, categoria, cantidad, precio, fecha_adquisicion)
+VALUES (4, 'Cámara Canon EOS 90D', 'Cámara réflex digital de 32.5 MP', 'Electrónica', 1, 1500.00, '2024-09-15');
+5. Artículo insertado en diciembre de 2024:
+sql
+Copiar código
+INSERT INTO articulo (user_id, nombre, descripcion, categoria, cantidad, precio, fecha_adquisicion)
+VALUES (4, 'Portátil Dell XPS', 'Laptop portátil con procesador i7 y 16GB de RAM', 'Tecnología', 2, 1800.00, '2024-12-05');
+Cada inserción incluye una fecha de adquisición diferente en los años 2023 y 2024, y cubre diversas categorías de artículos.

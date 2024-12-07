@@ -1,0 +1,11 @@
+
+Nueva columna en la tabla articulo
+ALTER TABLE articulo
+    -> ADD COLUMN imgFactura VARCHAR(255);
+
+Introducimos valores dentro del campo creado
+UPDATE articulo SET imgFactura = 'factura1.pdf' WHERE user_id = 1 AND nombre = 'Televisor Samsung'; 
+
+UPDATE articulo SET imgFactura = 'factura2.pdf' WHERE user_id = 1 AND nombre = 'Silla de oficina'; 
+
+UPDATE articulo SET imgFactura = 'factura3.pdf' WHERE user_id = 2 AND nombre = 'Laptop HP'; 
