@@ -1,0 +1,54 @@
+PROCEDIMIENTO ALMACENADO: GastosPorAnioDetalle
+Este procedimiento almacenado calcula los gastos totales por mes de un usuario durante un año determinado. Primero, crea una tabla temporal con los meses del año, luego calcula el total de gastos por mes de acuerdo con las facturas y artículos asociados al user_id y al año proporcionados.
+
+sql
+Copiar código
+DELIMITER //
+
+CREATE PROCEDURE GastosPorAnioDetalle(IN user_id INT, IN anio INT)
+BEGIN
+    -- Crear una tabla temporal para almacenar los meses del año
+    CREATE TEMPORARY TABLE MesesDelAnio (
+        mes_num INT PRIMARY KEY,
+        mes_nombre VARCHAR(20)
+    );
+
+    -- Insertar los nombres de los meses en la tabla temporal
+    INSERT INTO MesesDelAnio (mes_num, mes_nombre)
+    VALUES
+        (1, 'Enero'), (2, 'Febrero'), (3, 'Marzo'),
+        (4, 'Abril'), (5, 'Mayo'), (6, 'Junio'),
+        (7, 'Julio'), (8, 'Agosto'), (9, 'Septiembre'),
+        (10, 'Octubre'), (11, 'Noviembre'), (12, 'Diciembre');
+
+    -- Consultar los gastos por cada mes del año y mostrar el total por mes
+    SELECT m.mes_nombre AS mes,
+           IFNULL(SUM(f.monto), 0) AS total_gastos
+    FROM MesesDelAnio m
+    LEFT JOIN Factura f ON MONTH(f.fecha) = m.mes_num
+    LEFT JOIN Articulo a ON f.articulo_id = a.id
+    WHERE a.user_id = user_id AND YEAR(f.fecha) = anio
+    GROUP BY m.mes_num, m.mes_nombre
+    ORDER BY m.mes_num;
+
+    -- Eliminar la tabla temporal después de usarla
+    DROP TEMPORARY TABLE MesesDelAnio;
+END //
+
+DELIMITER ;
+TRIGGER: aplicar_iva_por_articulo
+Este trigger se ejecuta antes de cada inserción en la tabla factura. Su función es aplicar un IVA del 15% al monto de la factura antes de insertarse en la base de datos.
+
+sql
+Copiar código
+DELIMITER //
+
+CREATE TRIGGER aplicar_iva_por_articulo
+BEFORE INSERT ON factura
+FOR EACH ROW
+BEGIN
+    -- Aplica el IVA del 15% al monto de la factura antes de la inserción
+    SET NEW.monto = NEW.monto * 1.15;
+END //
+
+DELIMITER ;
