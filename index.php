@@ -139,7 +139,7 @@ if (!isset($_SESSION['loggedin'])) {
                     $identify = $ren['id'];
                     
                     echo "<tr><th>$id</th> <TH> $ti </TH> <TH> $di </TH><TH> $ac </TH><TH> $im </TH>";
-                    echo "<td><a href='#?id_peli=$id'><img src='MisFacturas/$fa' width='80' height='40'></a></td>";
+                    echo "<th><img src='MisFacturas/$fa' width='80' height='40'></a></th>";
                     echo "<th>
         <a class='btn_1 small nav-link' data-toggle='modal' data-target='#deleteModal$identify' href=''>X</a>
         <a class='btn_1 small nav-link' data-toggle='modal' data-target='#updateModal$identify' href=''>Editar</a>
@@ -200,7 +200,7 @@ echo "
               </div>
                 <div class='form-group'>
                 <label for='precio$identify'>Precio</label>
-                <input type='file' class='form-control' id='imgFactura$identify' name='Factura' value='$fa' required>
+                <input type='file' class='form-control' id='imgFactura$identify' name='factura' value='$fa' required>
               </div>
               <div class='modal-footer'>
                 <button class='btn btn-secondary' type='button' data-dismiss='modal'>Cancelar</button>
