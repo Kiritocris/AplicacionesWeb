@@ -94,15 +94,6 @@ if (!isset($_SESSION['loggedin'])) {
   <!-- /Navigation-->
   <div class="content-wrapper">
     <div class="container-fluid">
-      <!-- Breadcrumbs-->
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-          <a href="#">Dashboard</a>
-        </li>
-        <li class="breadcrumb-item active">Tables</li>
-      </ol>
-	  <!-- Area Chart Example-->
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
