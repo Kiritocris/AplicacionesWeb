@@ -15,6 +15,8 @@ $descripcion = mysqli_real_escape_string($link, $_POST['descripcion']);
 $categoria = mysqli_real_escape_string($link, $_POST['categoria']);
 $cantidad = intval($_POST['cantidad']);
 $precio = floatval($_POST['precio']);
+$factura = mysqli_real_escape_string($link, $_POST['factura']);
+
 
 // Actualizar el registro en la base de datos
 $sql = "UPDATE articulo SET 
@@ -22,7 +24,8 @@ $sql = "UPDATE articulo SET
             descripcion = '$descripcion',
             categoria = '$categoria',
             cantidad = '$cantidad',
-            precio = '$precio'
+            precio = '$precio',
+            imgFactura = '$factura'
         WHERE id = '$id'";
 
 if (mysqli_query($link, $sql)) {
