@@ -138,7 +138,7 @@ if (!isset($_SESSION['loggedin'])) {
                     echo "<tr><th>$id</th> <TH> $ti </TH> <TH> $di </TH><TH> $ac </TH><TH> $im </TH>";
                     echo "<th>
         <a class='btn_1 small nav-link' data-toggle='modal' data-target='#deleteModal$identify' href=''>X</a>
-        <a class='btn_1 small' href=''>#</a>
+        <a class='btn_1 small nav-link' data-toggle='modal' data-target='#updateModal$identify' href=''>Editar</a>
       </th>";
 
 // Crear una modal específica para cada elemento
@@ -160,6 +160,49 @@ echo "
     </div>
   </div>
 </div>";
+
+echo "
+    <div class='modal fade' id='updateModal$identify' tabindex='-1' role='dialog' aria-labelledby='updateModalLabel$identify' aria-hidden='true'>
+      <div class='modal-dialog' role='document'>
+        <div class='modal-content'>
+          <div class='modal-header'>
+            <h5 class='modal-title' id='updateModalLabel$identify'>Actualizar Artículo</h5>
+            <button class='close' type='button' data-dismiss='modal' aria-label='Close'>
+              <span aria-hidden='true'>&times;</span>
+            </button>
+          </div>
+          <div class='modal-body'>
+            <form action='edit_obj.php' method='POST'>
+              <input type='hidden' name='id' value='$identify'>
+              <div class='form-group'>
+                <label for='nombre$identify'>Nombre del artículo</label>
+                <input type='text' class='form-control' id='nombre$identify' name='nombre' value='$id' required>
+              </div>
+              <div class='form-group'>
+                <label for='descripcion$identify'>Descripción</label>
+                <input type='text' class='form-control' id='descripcion$identify' name='descripcion' value='$ti' required>
+              </div>
+              <div class='form-group'>
+                <label for='categoria$identify'>Categoría</label>
+                <input type='text' class='form-control' id='categoria$identify' name='categoria' value='$di' required>
+              </div>
+              <div class='form-group'>
+                <label for='cantidad$identify'>Cantidad</label>
+                <input type='number' class='form-control' id='cantidad$identify' name='cantidad' value='$ac' required>
+              </div>
+              <div class='form-group'>
+                <label for='precio$identify'>Precio</label>
+                <input type='number' class='form-control' id='precio$identify' name='precio' value='$im' required>
+              </div>
+              <div class='modal-footer'>
+                <button class='btn btn-secondary' type='button' data-dismiss='modal'>Cancelar</button>
+                <button type='submit' class='btn btn-primary'>Actualizar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>";
                 }
                 mysqli_close($link); 
                 ?>
