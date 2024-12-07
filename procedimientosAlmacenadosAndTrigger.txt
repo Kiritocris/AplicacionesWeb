@@ -36,19 +36,20 @@ BEGIN
 END //
 
 DELIMITER ;
-TRIGGER: aplicar_iva_por_articulo
-Este trigger se ejecuta antes de cada inserción en la tabla factura. Su función es aplicar un IVA del 15% al monto de la factura antes de insertarse en la base de datos.
+
+-- TRIGGER( Aumenta en un 15% al precio inicial de cada articulo)
+Usar un BEFORE INSERT 
+Este enfoque modifica el precio directamente antes de que el registro se inserte en la tabla:
 
 sql
 Copiar código
-DELIMITER //
+DELIMITER $$
 
-CREATE TRIGGER aplicar_iva_por_articulo
-BEFORE INSERT ON factura
+CREATE TRIGGER aumentar_precio_before_insert
+BEFORE INSERT ON articulo
 FOR EACH ROW
 BEGIN
-    -- Aplica el IVA del 15% al monto de la factura antes de la inserción
-    SET NEW.monto = NEW.monto * 1.15;
-END //
+    SET NEW.precio = NEW.precio * 1.15;
+END$$
 
 DELIMITER ;
