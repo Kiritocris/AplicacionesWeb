@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="Ansonika">
-  <title>UDEMA - Admin dashboard</title>
+  <title>Registro</title>
 	
   <!-- Favicons-->
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
@@ -34,70 +34,57 @@
 </head>
 
 <body class="fixed-nav sticky-footer" id="page-top">
-
-		<div class="box_general padding_bottom">
+	<div class="content-wrapper">
+		
 			<div class="header_box version_2">
-				<h2><i class="fa fa-user"></i>Sign in</h2>
+				<h2><i class="fa fa-user"></i>Registrate</h2>
 			</div>
+			<form action="register_user.php" method="POST">
 			<div class="row">
-				<div class="col-md-4">
-					<div class="form-group">
-					<label>Your photo</label>
-						<form action="/file-upload" class="dropzone"></form>
-				    </div>
-				</div>
+			
 				<div class="col-md-8 add_top_30">
 					<div class="row">
 						<div class="col-md-6">
 							<div class="form-group">
-								<label>Name</label>
-								<input type="text" class="form-control" placeholder="Your name">
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="form-group">
-								<label>Last name</label>
-								<input type="text" class="form-control" placeholder="Your last name">
-							</div>
-						</div>
-					</div>
-					<!-- /row-->
-					<div class="row">
-						<div class="col-md-6">
-							<div class="form-group">
-								<label>Telephone</label>
-								<input type="text" class="form-control" placeholder="Your telephone number">
+								<label>Username</label>
+								<input type="text" class="form-control" placeholder="Escribe tu usuario" name="usery">
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>Email</label>
-								<input type="email" class="form-control" placeholder="Your email">
+								<input type="text" class="form-control" placeholder="Escribe tu email" name="emaily">
 							</div>
 						</div>
 					</div>
 					<!-- /row-->
 					<div class="row">
-						<div class="col-md-12">
+						<div class="col-md-6">
 							<div class="form-group">
-								<label>Personal info</label>
-								<textarea style="height:100px;" class="form-control" placeholder="Personal info"></textarea>
+								<label>Contraseña</label>
+								<input type="text" class="form-control" placeholder="Escribe tu contraseña" name="passy">
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label>Confirmar contraseña</label>
+								<input type="email" class="form-control" placeholder="Confirma tu contraseña">
 							</div>
 						</div>
 					</div>
-					<!-- /row-->
           <div class="row">
 						<div class="col-md-12">
 							<div class="form-group">
-								<p><a href="#0" class="btn_1 medium">Sign in</a></p>
-                <p> You have an account <a href="login.html">Log in</a></p>
+								<p><input class="btn_1 medium" type="submit" value="Registrarse"></p>
+
+                <p> You have an account <a href="login.php">Log in</a></p>
 							</div>
 						</div>
             
 					</div>  
 				</div>
 			</div>
-		</div>
+
 		
 	  </div>
 	  <!-- /.container-fluid-->

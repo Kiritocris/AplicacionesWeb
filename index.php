@@ -99,9 +99,7 @@ if (!isset($_SESSION['loggedin'])) {
         <div class="card-header">
           <i class="fa fa-table"></i> Inventario</div>
         <div class="card-body">
-            <a class="btn_1 small" href="">Añadir articulo</a>
-            <a class="btn_1 small" href="">Eliminar articulo</a>
-            <a class="btn_1 small" href="">Modificar articulo</a>
+            <p><a class="btn_1 small nav-link" data-toggle="modal" data-target="#createModal" href="">Añadir articulo</a></p>
           <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <thead>
@@ -111,6 +109,7 @@ if (!isset($_SESSION['loggedin'])) {
                   <th>Categoria</th>
                   <th>Cantidad</th>
                   <th>Precio</th>
+                  <th>Opciones</th>
                 </tr>
               </thead>
               <tfoot>
@@ -120,6 +119,7 @@ if (!isset($_SESSION['loggedin'])) {
                   <th>Categoria</th>
                   <th>Cantidad</th>
                   <th>Precio</th>
+                  <th>Opciones</th>
                 </tr>
               </tfoot>
               <tbody>
@@ -133,9 +133,33 @@ if (!isset($_SESSION['loggedin'])) {
                     $di  = $ren['categoria'];
                     $ac  = $ren['cantidad'];
                     $im  = $ren['precio'];
-              
+                    $identify = $ren['id'];
                     
-                    echo "<tr><th>$id</th> <TH> $ti </TH> <TH> $di </TH><TH> $ac </TH><TH> $im </TH></tr>";
+                    echo "<tr><th>$id</th> <TH> $ti </TH> <TH> $di </TH><TH> $ac </TH><TH> $im </TH>";
+                    echo "<th>
+        <a class='btn_1 small nav-link' data-toggle='modal' data-target='#deleteModal$identify' href=''>X</a>
+        <a class='btn_1 small' href=''>#</a>
+      </th>";
+
+// Crear una modal específica para cada elemento
+echo "
+<div class='modal fade' id='deleteModal$identify' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+  <div class='modal-dialog' role='document'>
+    <div class='modal-content'>
+      <div class='modal-header'>
+        <h5 class='modal-title' id='exampleModalLabel'>¿Quieres eliminar este artículo?</h5>
+        <button class='close' type='button' data-dismiss='modal' aria-label='Close'>
+          <span aria-hidden='true'>×</span>
+        </button>
+      </div>
+      <div class='modal-body'>Selecciona \"Eliminar\" si estás seguro de que quieres eliminar este artículo.</div>
+      <div class='modal-footer'>
+        <button class='btn btn-secondary' type='button' data-dismiss='modal'>Cancelar</button>
+        <a class='btn btn-primary' href='delete_obj.php?id=" . urlencode($identify) . "'>Eliminar</a>
+      </div>
+    </div>
+  </div>
+</div>";
                 }
                 mysqli_close($link); 
                 ?>
@@ -159,16 +183,60 @@ if (!isset($_SESSION['loggedin'])) {
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <h5 class="modal-title" id="exampleModalLabel">¿Quieres cerrar sesión?</h5>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">×</span>
             </button>
           </div>
-          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-body">Selecciona "Cerrar sesión" si estas seguro de que quieres cerrar sesión.</div>
           <div class="modal-footer">
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="close_session.php">Logout</a>
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+            <a class="btn btn-primary" href="close_session.php">Cerrar sesión</a>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Añadir un objeto</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+          <form action="add_obj.php" method="POST">
+          <p>
+            <label>Nombre del articulo</label>
+            <input type="text" name="articuloz" required>
+          </p>
+          <p>
+            <label>Categoria</label>
+            <input type="text" name="categoriaz">
+          </p>
+          <p>
+            <label>Cantidad</label>
+            <input type="number" name="cantidadz" required>
+          </p>
+          <p>
+            <label>Precio</label>
+            <input type="number" name="precioz" required>
+          </p>
+          <p class="full">
+            <label>Descripcion</label>
+            <textarea name="descripcionz" required></textarea>
+          </p>
+          <p class="full">
+            
+          </p>
+                  </div>
+          <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <input class="btn btn-primary" type="submit" value="Añadir">
+          </div>
+          </form>
         </div>
       </div>
     </div>

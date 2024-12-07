@@ -33,7 +33,7 @@
 	
 </head>
 
-<body>
+<body class="fixed-nav sticky-footer" id="page-top">
   <!-- /Navigation-->
   <div class="content-wrapper">
     
@@ -62,8 +62,8 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="form-group">
-              <input class="btn_1 medium" type="submit">
-                <p> You don´t have an account <a href="sign-in.html">Sign in</a></p>
+              <p><input class="btn_1 medium" type="submit" value="Enviar"></p>
+                <p> You don´t have an account <a href="sign-in.php">Sign in</a></p>
 							</div>
 						</div>
             
