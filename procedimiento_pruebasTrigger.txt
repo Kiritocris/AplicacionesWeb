@@ -139,3 +139,4 @@ mysql> select * from articulo;
 | 33 |       4 | Cámara Canon EOS 90D             | Cámara réflex digital de 32.5 MP                                           | Electrónica           |        1 |  1725.00 | 2024-09-15        |
 | 34 |       4 | Portátil Dell XPS                | Laptop portátil con procesador i7 y 16GB de RAM                            | Tecnología            |        2 |  2070.00 | 2024-12-05        |
 +----+---------+----------------------------------+----------------------------------------------------------------------------+-----------------------+----------+----------+-------------------+
+

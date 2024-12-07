@@ -109,6 +109,7 @@ if (!isset($_SESSION['loggedin'])) {
                   <th>Categoria</th>
                   <th>Cantidad</th>
                   <th>Precio</th>
+                  <th>Factura</th>
                   <th>Opciones</th>
                 </tr>
               </thead>
@@ -119,6 +120,7 @@ if (!isset($_SESSION['loggedin'])) {
                   <th>Categoria</th>
                   <th>Cantidad</th>
                   <th>Precio</th>
+                  <th>Factura</th>
                   <th>Opciones</th>
                 </tr>
               </tfoot>
@@ -133,9 +135,11 @@ if (!isset($_SESSION['loggedin'])) {
                     $di  = $ren['categoria'];
                     $ac  = $ren['cantidad'];
                     $im  = $ren['precio'];
+                    $fa  = $ren['imgFactura'];
                     $identify = $ren['id'];
                     
                     echo "<tr><th>$id</th> <TH> $ti </TH> <TH> $di </TH><TH> $ac </TH><TH> $im </TH>";
+                    echo "<td><a href='#?id_peli=$id'><img src='MisFacturas/$fa' width='80' height='40'></a></td>";
                     echo "<th>
         <a class='btn_1 small nav-link' data-toggle='modal' data-target='#deleteModal$identify' href=''>X</a>
         <a class='btn_1 small nav-link' data-toggle='modal' data-target='#updateModal$identify' href=''>Editar</a>
@@ -193,6 +197,10 @@ echo "
               <div class='form-group'>
                 <label for='precio$identify'>Precio</label>
                 <input type='number' class='form-control' id='precio$identify' name='precio' value='$im' required>
+              </div>
+                <div class='form-group'>
+                <label for='precio$identify'>Precio</label>
+                <input type='file' class='form-control' id='imgFactura$identify' name='Factura' value='$fa' required>
               </div>
               <div class='modal-footer'>
                 <button class='btn btn-secondary' type='button' data-dismiss='modal'>Cancelar</button>
