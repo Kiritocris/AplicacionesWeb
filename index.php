@@ -279,9 +279,13 @@ echo "
             <label>Descripcion</label>
             <textarea name="descripcionz" required></textarea>
           </p>
+        
           <p class="full">
-            
+              <label for="Factura">Factura (PDF)</label>
+              <input type="file" name="facturaz" id="Factura" accept="application/pdf">
+              <small>Selecciona un archivo PDF para cargar</small>
           </p>
+
                   </div>
           <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
